@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function Signup() {
 
     const [firstName, setFirstName] = useState()
-    const [LastName, setLastName] = useState()
+    const [lastName, setLastName] = useState()
     const [email, setEmail] = useState()
     const [address, setAddress] = useState()
     const [password, setPassword] = useState()
@@ -15,7 +15,7 @@ function Signup() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3001/register', {firstName, LastName, email, address, password, phone, image})
+        axios.post('http://localhost:3001/register', {firstName, lastName, email, address, password, phone, image})
         .then(result => {console.log(result)
             navigate('/login')
         })
