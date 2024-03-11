@@ -2,6 +2,7 @@ import {useState} from "react";
 import {Link} from 'react-router-dom';
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
+
 function Signup() {
 
     const [firstName, setFirstName] = useState()
@@ -11,11 +12,12 @@ function Signup() {
     const [password, setPassword] = useState()
     const [phone, setPhone] = useState()
     const [image, setImage] = useState("")
+    const [accountType, setAccountType] = useState("");
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3001/register', {firstName, lastName, email, address, password, phone, image})
+        axios.post('http://localhost:3001/register', {accountType, firstName, lastName, email, address, password, phone, image})
         .then(result => {console.log(result)
             navigate('/login')
         })
@@ -36,11 +38,25 @@ function Signup() {
     }
     
     return(
-        <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
+        <div className="d-flex justify-content-center align-items-center bg-secondary vh-50">
         <div className="bg-white p-3 rounded w-30">
-            <h2>Create a client account with Bit Builders</h2>
+            <h2>Create an account with RentEase</h2>
             <p>Accounts may take up to 2 days to process</p>
             <form onSubmit={handleSubmit}>
+                {/* Account Type Select */}
+                <div className="mb-3">
+                    <label htmlFor="accountType">
+                        <strong>Account Type: </strong>
+                    </label>
+                    <select
+                        id="accountType"
+                        value={accountType}
+                        onChange={(e) => setAccountType(e.target.value)}
+                    >
+                        <option value="Client">Client</option>
+                        <option value="Homeowner">Homeowner</option>
+                    </select>   
+                </div>
                 {/*First Name Field*/}
                 <div className="mb-3">
                     <label htmlFor="email">
