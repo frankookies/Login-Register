@@ -24,12 +24,12 @@ function Login() {
     return(
         <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
         <div className="bg-white p-3 rounded w-25">
-            <h2>Login</h2>
+            <h2>Login to your RentEase Account</h2>
             <form onSubmit={handleSubmit}>
                 {/*Email Field*/}
                 <div className="mb-3">
                     <label htmlFor="email">
-                        <strong>Email</strong>
+                        <strong>Email:</strong>
                     </label>
                     <input 
                     type="email"
@@ -43,7 +43,7 @@ function Login() {
                 {/*Password Field*/}
                 <div className="mb-3">
                     <label htmlFor="email">
-                        <strong>Password</strong>
+                        <strong>Password:</strong>
                     </label>
                         <input 
                     type="password"
@@ -53,7 +53,7 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-                <button type="submit" className="btn btn-success w-100 rounded-0">
+                <button type="submit" className="btn btn-success w-100 rounded-0" style={{background: "#B5A9E8", color: "#39197C"}}>
                     Login
                 </button>
                 <p>Don't Have an Account Yet?</p>
